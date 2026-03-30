@@ -1,12 +1,12 @@
 
 import './App.css'
+import Navbar from './components/Navbar'
 function App() {
   
 
   return (
     <>
-      <h1 className='text-2xl'>hellow</h1>
-      <button className="btn btn-xl">Xlarge</button>
+      <Navbar></Navbar>
     </>
   )
 }
