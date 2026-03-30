@@ -1,5 +1,7 @@
 
 import './App.css'
+import CtaSection from './components/CtaSection'
+import Footer from './components/Footer'
 import GetStartedSection from './components/GetStartedSection'
 import HeroSection from './components/HeroSection'
 import Navbar from './components/Navbar'
@@ -16,6 +18,8 @@ function App() {
       <StatsSection></StatsSection>
       <GetStartedSection></GetStartedSection>
       <PricingSection></PricingSection>
+      <CtaSection></CtaSection>
+      <Footer></Footer>
     </>
   )
 }
