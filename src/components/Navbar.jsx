@@ -2,9 +2,9 @@ import React from 'react';
 
 const Navbar = ({ totalSelected }) => {
     return (
-        <nav className="bg-white border-b border-[#f1f1f1] sticky top-0 z-50 py-2">
+        <nav className="bg-white border-b border-[#f1f1f1] sticky top-0 z-50 py-5">
             <div className="container mx-auto flex items-center justify-between px-6 lg:px-12">
-                
+
                 {/* Brand Logo */}
                 <div className="flex items-center gap-4">
                     {/* Mobile Menu Icon */}
@@ -52,7 +52,7 @@ const Navbar = ({ totalSelected }) => {
                     <button className="hidden sm:block text-sm font-bold text-gray-700 hover:text-black">
                         Login
                     </button>
-                    
+
                     {/* Action Button */}
                     <button className="bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white px-7 py-2.5 rounded-full text-sm font-bold shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200">
                         Get Started
