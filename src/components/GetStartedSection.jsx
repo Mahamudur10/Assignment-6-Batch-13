@@ -6,19 +6,19 @@ const GetStartedSection = () => {
             number: "01",
             title: "Create Account",
             desc: "Sign up for free in seconds. No credit card required to get started.",
-            image: "/assets/user.png"
+            image: "./assets/user.png"
         },
         {
             number: "02",
             title: "Choose Products",
             desc: "Browse our catalog and select the tools that fit your needs.",
-            image: "/assets/package.png"
+            image: "./assets/package.png"
         },
         {
             number: "03",
             title: "Start Creating",
             desc: "Download and start using your premium tools immediately.",
-            image: "/assets/rocket.png"
+            image: "./assets/rocket.png"
         }
     ];
 

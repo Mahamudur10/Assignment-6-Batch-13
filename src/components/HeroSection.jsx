@@ -32,7 +32,7 @@ const HeroSection = () => {
                     {/* Watch Demo Button with Play.png */}
                     <button className="flex items-center gap-2 border border-purple-200 text-purple-600 px-8 py-3.5 rounded-full font-semibold hover:bg-purple-50 transition-all active:scale-95">
                         <img
-                            src="/assets/Play.png"
+                            src="./assets/Play.png"
                             alt="Play Icon"
                             className="w-5 h-5 object-contain"
                         />
@@ -45,7 +45,7 @@ const HeroSection = () => {
             <div className="flex-1 relative">
                 <div className="w-full max-w-125 ml-auto">
                     <img
-                        src="/assets/banner.png"
+                        src="./assets/banner.png"
                         alt="Digital Workflow Banner"
                         className="w-full h-auto rounded-2xl shadow-2xl object-cover"
                     />

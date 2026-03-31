@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
 
-
 const ProductSection = ({ addToCart, cartItems, removeFromCart, handleCheckout }) => {
   const [productsData, setProductsData] = useState([]);
   const [activeTab, setActiveTab] = useState('product');
 
   useEffect(() => {
-    fetch('/products.json')
-      .then((res) => res.json())
+    fetch('products.json')
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
       .then((data) => setProductsData(data))
-      .catch((err) => console.error("JSON", err));
+      .catch((err) => console.error("JSON Fetch Error:", err));
   }, []);
 
   return (
     <section className="bg-slate-50 py-24 px-6">
       <div className="max-w-7xl mx-auto">
 
+        {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-[900] text-slate-900 tracking-tight">
             Premium Digital Tools
@@ -26,8 +29,8 @@ const ProductSection = ({ addToCart, cartItems, removeFromCart, handleCheckout }
             to boost your productivity and creativity.
           </p>
 
+          {/* Tab Buttons */}
           <div className="flex justify-center items-center gap-4 pt-6">
-
             <button
               onClick={() => setActiveTab('product')}
               className={`${activeTab === 'product' ? 'bg-[#7C3AED] text-white' : 'bg-white text-slate-600 border border-slate-200'} px-9 py-3 rounded-full font-bold shadow-lg hover:shadow-purple-200 transition-all`}
@@ -44,11 +47,10 @@ const ProductSection = ({ addToCart, cartItems, removeFromCart, handleCheckout }
           </div>
         </div>
 
-
+        {/* Tab Content */}
         {activeTab === 'product' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {productsData.map((product) => {
-
               const isInCart = cartItems.some(item => item.id === product.id);
 
               return (
@@ -56,17 +58,18 @@ const ProductSection = ({ addToCart, cartItems, removeFromCart, handleCheckout }
                   key={product.id}
                   className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group relative"
                 >
+                  {/* Badge */}
                   <div className={`absolute top-10 right-10 px-4 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest ${product.badgeColor}`}>
                     {product.badge}
                   </div>
 
+                  {/* Product Image Container */}
                   <div className="w-16 h-16 mb-8 bg-slate-50 rounded-2xl flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300">
                     <img
-                      src={encodeURI(product.imagePath)}
+                      src={product.imagePath} 
                       alt={product.title}
                       className="w-full h-full object-contain"
                       onError={(e) => {
-                        console.log("Image not found at:", product.imagePath);
                         e.target.src = "https://via.placeholder.com/64";
                       }}
                     />
@@ -77,11 +80,13 @@ const ProductSection = ({ addToCart, cartItems, removeFromCart, handleCheckout }
                     {product.desc}
                   </p>
 
+                  {/* Pricing */}
                   <div className="flex items-baseline gap-1 mb-10">
                     <span className="text-3xl font-black text-slate-900">{product.price}</span>
                     <span className="text-slate-400 font-bold text-sm">{product.period}</span>
                   </div>
 
+                  {/* Features List */}
                   <ul className="space-y-4 mb-12">
                     {product.features && product.features.map((feature, index) => (
                       <li key={index} className="flex items-center gap-3 text-slate-600 text-[14px] font-semibold">
@@ -93,7 +98,7 @@ const ProductSection = ({ addToCart, cartItems, removeFromCart, handleCheckout }
                     ))}
                   </ul>
 
-
+                  {/* Add to Cart Button */}
                   <button
                     onClick={() => addToCart(product)}
                     disabled={isInCart}
@@ -109,7 +114,7 @@ const ProductSection = ({ addToCart, cartItems, removeFromCart, handleCheckout }
             })}
           </div>
         ) : (
-
+          /* Cart Component */
           <Cart
             cartItems={cartItems}
             removeFromCart={removeFromCart}
