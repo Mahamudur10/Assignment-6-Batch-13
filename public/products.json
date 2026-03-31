@@ -64,5 +64,27 @@
     "badge": "Best Seller",
     "badgeColor": "bg-orange-100 text-orange-600",
     "imagePath": "assets/products/social-media.png"
+  },
+  {
+    "id": 7,
+    "title": "Cloud Storage Pro",
+    "desc": "Secure, lightning-fast cloud storage for your massive digital assets and teamwork.",
+    "price": "$12",
+    "period": "/Mo",
+    "features": ["2TB Secure Storage", "End-to-end encryption", "Smart file sharing"],
+    "badge": "Essential",
+    "badgeColor": "bg-blue-100 text-blue-600",
+    "imagePath": "assets/products/clude.png"
+  },
+  {
+    "id": 8,
+    "title": "SEO Analytics Bot",
+    "desc": "Deep-dive keyword research and real-time rank tracking for your websites.",
+    "price": "$59",
+    "period": "/Mo",
+    "features": ["Competitor analysis", "Backlink checker", "Weekly SEO reports"],
+    "badge": "High Growth",
+    "badgeColor": "bg-indigo-100 text-indigo-600",
+    "imagePath": "assets/products/seo.png"
   }
 ]
