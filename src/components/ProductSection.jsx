@@ -98,8 +98,8 @@ const ProductSection = ({ addToCart, cartItems, removeFromCart, handleCheckout }
                     onClick={() => addToCart(product)}
                     disabled={isInCart}
                     className={`w-full py-4.5 rounded-2xl font-bold text-[15px] transition-all shadow-lg active:scale-95 ${isInCart
-                        ? 'bg-green-500 text-white cursor-default'
-                        : 'bg-[#7C3AED] hover:bg-[#6D28D9] text-white shadow-purple-50'
+                      ? 'bg-green-500 text-white cursor-default'
+                      : 'bg-[#7C3AED] hover:bg-[#6D28D9] text-white shadow-purple-50'
                       }`}
                   >
                     {isInCart ? 'Added to Cart ✓' : 'Buy Now'}
