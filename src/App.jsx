@@ -1,4 +1,4 @@
-
+import { useState } from 'react'
 import './App.css'
 import CtaSection from './components/CtaSection'
 import Footer from './components/Footer'
@@ -10,18 +10,39 @@ import ProductSection from './components/ProductSection'
 import StatsSection from './components/StatsSection'
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
 
+  const addToCart = (product) => {
+    if (!cartItems.find(item => item.id === product.id)) {
+      setCartItems([...cartItems, product]);
+    }
+  };
+
+  const removeFromCart = (id) => {
+    setCartItems(cartItems.filter(item => item.id !== id));
+  };
+
+  const handleCheckout = () => {
+    setCartItems([]);
+  };
 
   return (
     <>
-      <Navbar></Navbar>
-      <HeroSection></HeroSection>
-      <StatsSection></StatsSection>
-      <ProductSection></ProductSection>
-      <GetStartedSection></GetStartedSection>
-      <PricingSection></PricingSection>
-      <CtaSection></CtaSection>
-      <Footer></Footer>
+      <Navbar cartCount={cartItems.length} />
+      <HeroSection />
+      <StatsSection />
+
+      <ProductSection
+        addToCart={addToCart}
+        cartItems={cartItems}
+        removeFromCart={removeFromCart}
+        handleCheckout={handleCheckout}
+      />
+
+      <GetStartedSection />
+      <PricingSection />
+      <CtaSection />
+      <Footer />
     </>
   )
 }
